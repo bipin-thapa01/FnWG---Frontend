@@ -12,6 +12,18 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@custom-variant ll {
+  @media (min-width: 1240px) {
+    @slot;
+  }
+}
+
+@custom-variant xs {
+  @media (min-width: 490px) {
+    @slot;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #111827;
