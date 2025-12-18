@@ -29,7 +29,7 @@ export default function Signin() {
     const data = Object.fromEntries(formData.entries());
 
     if (data.username === '' || data.password === '') {
-      displayPopup("Alert Message!", "One of the field is empty!");
+      displayPopup("Alert Message!", "One or more field is empty!");
       return;
     }
 
@@ -43,8 +43,13 @@ export default function Signin() {
       });
       const resData = await res.json();
       displayPopup("Signin Message", resData?.response);
-      router.push('/');
-      
+      if(resData?.response === 'Invalid username or password!'){
+        return;
+      }
+      localStorage.setItem('token',resData?.token);
+      setTimeout(()=>{
+        router.push('/');
+      },2000)
     }
     catch (err) {
       displayPopup("Error Message!", "Server is down");

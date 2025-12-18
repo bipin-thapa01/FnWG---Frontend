@@ -28,7 +28,7 @@ export default function Signup() {
     const data = Object.fromEntries(formData.entries());
 
     if (data.firstName === '' || data.lastName === '' || data.username === '' || data.password === '' || data.email === '') {
-      displayPopup("Alert Message!", "One of the field is empty!");
+      displayPopup("Alert Message!", "One or more field is empty!");
       return;
     }
 
@@ -43,7 +43,7 @@ export default function Signup() {
       const resData = await res.json();
       displayPopup("Signup Message", resData?.response);
       router.push('/signin');
-      
+
     }
     catch (err) {
       displayPopup("Error Message!", "Server is down");

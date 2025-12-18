@@ -15,7 +15,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <div className='h-screen flex flex-col border-r w-64 px-4 overflow-hidden' style={{ borderColor: '#1d2939' }}>
+    <nav className='h-screen flex flex-col border-r w-64 px-4 overflow-hidden' style={{ borderColor: '#1d2939' }}>
       <div className='py-4 mb-4'>Logo</div>
       <div>
         <div className='text-gray-500 mb-4 text-sm'>MENU</div>
@@ -44,6 +44,6 @@ export default function Nav() {
           <span>Food Nutrition</span></div>
         </div>
       </div>
-    </div>
+    </nav>
   )
 }
